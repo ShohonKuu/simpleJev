@@ -1,0 +1,19 @@
+[project]
+name = "simplejev"
+version = "0.0.1"
+requires-python = ">=3.12"
+dependencies = [
+    "torch>=2.6",
+    "torchvision>=0.21",
+    "transformers>=5.0",
+]
+
+# 这台机器没有 NVIDIA 驱动。torch 和 torchvision 只从 CPU 源装，轮子文件名带 +cpu。
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
+
+[tool.uv.sources]
+torch = { index = "pytorch-cpu" }
+torchvision = { index = "pytorch-cpu" }
