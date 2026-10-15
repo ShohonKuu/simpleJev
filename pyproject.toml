@@ -8,7 +8,14 @@ dependencies = [
     "transformers>=5.0",
 ]
 
-# 这台机器没有 NVIDIA 驱动。torch 和 torchvision 只从 CPU 源装，轮子文件名带 +cpu。
+[project.scripts]
+simplejev = "simplejev.__main__:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+# This machine has no NVIDIA driver. torch and torchvision come only from the CPU index.
 [[tool.uv.index]]
 name = "pytorch-cpu"
 url = "https://download.pytorch.org/whl/cpu"
